@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<tit<le>
+<h1>Add a Blog Entry</h1>
+</title>
+<form method="POST">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <label for="blogname">
+        <p>Title for your new blog:</p>
+        <input type="text" name="blogname" id="blogname"><br/>
+    </label>
+    <label for="blogtext">
+        <p>Your new blog:</p>
+    <textarea name="blogtext" id="blogtext"></textarea><br/>
+    </label>
+    <input type="submit" value="Add entry"/>
+</form>
+{% endblock %}
+
+
