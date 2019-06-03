@@ -6,9 +6,22 @@
     </head>
 <body>
     <nav>
-        <a href="/">Main Blog Page</a> | 
-        <a href="/newpost">Add a Blog Entry</a>
+        <a href="/">Home</a> |
+        <a href="/blog">Main Blog Page</a> | 
+        <a href="/newpost">Add a Blog Entry</a> | 
+        <a href="/login">Login</a> | 
+        <a href="/logout">Log Out</a> 
     </nav>
+
+    {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=flashes>
+              {% for message in messages %}
+              <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
   
     {% block content %}
     {% endblock %}
